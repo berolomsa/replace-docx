@@ -4,6 +4,9 @@
 # Log file
 *.log
 
+# Ignore target files
+*/target/*
+
 # BlueJ files
 *.ctxt
 
