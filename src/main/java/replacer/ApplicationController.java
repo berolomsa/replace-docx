@@ -15,7 +15,6 @@ import replacer.model.Response;
 import replacer.service.ReplaceServiceProcessor;
 
 import javax.servlet.http.HttpServletRequest;
-
 import java.util.List;
 
 import static replacer.utils.Constants.*;

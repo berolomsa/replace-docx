@@ -34,4 +34,8 @@ public class Uitls {
     public static String createTemplatesDirectoryPath() {
         return DIR + DIR_TEMPLATES;
     }
+
+    public static String createTempsDirectoryPath() {
+        return DIR + DIR_TEMPS;
+    }
 }

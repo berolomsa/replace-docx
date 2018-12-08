@@ -1,8 +1,5 @@
 package replacer.service;
 
-import org.springframework.stereotype.Service;
-import replacer.model.Request;
-import replacer.model.Response;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.openxml4j.opc.OPCPackage;
@@ -15,12 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
+import replacer.model.Request;
+import replacer.model.Response;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -30,7 +29,6 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import static java.util.stream.Collectors.toList;
 import static replacer.utils.Constants.*;
 import static replacer.utils.Uitls.*;
 
@@ -81,6 +79,20 @@ public class ReplaceServiceProcessor {
         }
     }
 
+    public void deleteFile(String fileName) throws Exception{
+        String fullPath = createFilePathWithoutExtention(fileName, DIR);
+        logger.info("Deleting file : {}", fullPath);
+        Path filePath = Paths.get(fullPath);
+        Files.delete(filePath);
+    }
+
+    public List<String> getAllFiles() throws Exception {
+        return Files.list(Paths.get(createTemplatesDirectoryPath()))
+                .filter(a -> a.toFile().isFile())
+                .map(a -> a.getFileName().toString())
+                .collect(Collectors.toList());
+    }
+
     private static void replace(Map<String, String> map, String file, String out) throws Exception {
         XWPFDocument doc = new XWPFDocument(OPCPackage.open(file));
         for (XWPFParagraph p : doc.getParagraphs()) {
@@ -99,17 +111,4 @@ public class ReplaceServiceProcessor {
         doc.write(new FileOutputStream(out));
     }
 
-    public void deleteFile(String fileName) throws Exception{
-        String fullPath = createFilePathWithoutExtention(fileName, DIR);
-        logger.info("Deleting file : {}", fullPath);
-        Path filePath = Paths.get(fullPath);
-        Files.delete(filePath);
-    }
-
-    public List<String> getAllFiles() throws Exception {
-        return Files.list(Paths.get(createTemplatesDirectoryPath()))
-                .filter(a -> a.toFile().isFile())
-                .map(a -> a.getFileName().toString())
-                .collect(Collectors.toList());
-    }
 }

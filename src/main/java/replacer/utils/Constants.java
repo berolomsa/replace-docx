@@ -15,4 +15,6 @@ public final class Constants {
     public static final String DIR_TEMPS = "temps/";
     public static final String EXTENTION = ".docx";
     public static final String SEPERATOR = "$";
+    public static final Integer BACKUP_DAYS_LIMIT = 7;
+    public static final String BACKUP_DAYS_CRON_JOB = "0 0 18 * * *";
 }
