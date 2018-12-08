@@ -4,9 +4,9 @@ Application is created for managing *.docx templates with replace/download/delet
 DOCX templates are being managed from UI interface http://url:8080/. Here you can delete/download/upload templates.
 
 For using replace function client must send POST request to server.
-Replaces docx file's placeholders
-Replace keywords are dynamic
-Find description below.
+This function replaces docx file's placeholders. Keywords for replacement are dynamic.
+
+
 **POST URL - http://url:8080/replace**
 	 
 Request example:
