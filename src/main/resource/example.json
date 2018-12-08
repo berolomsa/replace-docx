@@ -1,0 +1,11 @@
+{
+  "file":"template2",
+  "replace": {
+    "name":"bero",
+    "surname":"lomsadze",
+    "idnumber":"1235",
+    "date": "5 April",
+    "phonenumber":"598900310",
+    "address": "muxiani 4b"
+  }
+}
