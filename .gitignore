@@ -6,7 +6,8 @@
 
 # Ignore target files
 */target/*
-
+/target/*
+/target
 # BlueJ files
 *.ctxt
 
