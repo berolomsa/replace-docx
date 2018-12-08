@@ -24,16 +24,17 @@ Request example:
     }
 
 Params:
-"file" -> Filename of template without extention (For example: template will be referenced to template.docx
-"replace" -> Json array where key is placeholder and value is replacement. All keys will be upper-cased. (For example: name will actually replace $NAME$ in docx)
-Array keys are not fixed which makes replace function dynamic.
+	"file" -> Filename of template without extention (For example: template will be referenced to template.docx
+	"replace" -> Json array where key is placeholder and value is replacement. All keys will be upper-cased. (For example: name will 			actually replace $NAME$ in docx)
+			Array keys are not fixed which makes replace function dynamic.
 
 Response example:
+
     {
     "url": "http://localhost:8080/files/temps/a443f68f-8fbd-45ea-9673-53f478f75c4d.docx",
     "status": "OK"
     }
 
 Params:
-"url" -> Generated temp file's URL from where client can download file
-"status" -> General status code
+	"url" -> Generated temp file's URL from where client can download file
+	"status" -> General status code
