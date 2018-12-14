@@ -1,7 +1,9 @@
 jQuery(document).ready(function(){
+      var host = window.location.hostname;
+
       $.ajax({
         dataType: "json",
-        url: "http://localhost:8080/all",
+        url: "http://" + host +":8080/all",
         success: function(response) {
 			var html = '';
 			$.each(response,function(i, item) {
@@ -20,7 +22,9 @@ jQuery(document).ready(function(){
 			});
 			$('#table-body').append(html);
 			$(".delete").click(function(){
-				  var url = 'http://localhost:8080/deleteFile/templates/' + $(this).attr('alt');
+			var host = window.location.hostname;
+
+				  var url = 'http://' + host + ':8080/deleteFile/templates/' + $(this).attr('alt');
 							$.ajax({
 								  type:'DELETE',
 								  url: url,
@@ -30,7 +34,8 @@ jQuery(document).ready(function(){
 								});
 			});
 			$(".download").click(function(){
-				  var url = 'http://localhost:8080/files/templates/' + $(this).attr('alt');
+					var host = window.location.hostname;
+				  var url = 'http://' + host + ':8080/files/templates/' + $(this).attr('alt');
 				  window.open(url);
 
 			});
@@ -42,7 +47,9 @@ jQuery(document).ready(function(){
             var formData = new FormData();
             formData.append('file', $('.file-input')[0].files[0])
          	var xhr = new XMLHttpRequest();
-			xhr.open('POST', 'http://localhost:8080/uploadFile', true);
+         	var host = window.location.hostname;
+
+			xhr.open('POST', 'http://' + host + ':8080/uploadFile', true);
 			xhr.onload = function () {
 			  if (xhr.status === 200) {
 				location.reload();

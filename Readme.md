@@ -31,7 +31,7 @@ Params:
 Response example:
 
     {
-    "url": "http://localhost:8080/files/temps/a443f68f-8fbd-45ea-9673-53f478f75c4d.docx",
+    "url": "http://url:8080/files/temps/a443f68f-8fbd-45ea-9673-53f478f75c4d.docx",
     "status": "OK"
     }
 
