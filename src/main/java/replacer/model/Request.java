@@ -3,15 +3,15 @@ package replacer.model;
 import java.util.Map;
 
 public class Request {
-    private String file;
+    private String pdf_type;
     private Map<String, String> replace;
 
-    public String getFile() {
-        return file;
+    public String getPdf_type() {
+        return pdf_type;
     }
 
-    public void setFile(String file) {
-        this.file = file;
+    public void setPdf_type(String pdf_type) {
+        this.pdf_type = pdf_type;
     }
 
     public Map<String, String> getReplace() {
@@ -25,7 +25,7 @@ public class Request {
     @Override
     public String toString() {
         return "Request{" +
-                "file='" + file + '\'' +
+                "pdf_type='" + pdf_type + '\'' +
                 ", replace=" + replace +
                 '}';
     }

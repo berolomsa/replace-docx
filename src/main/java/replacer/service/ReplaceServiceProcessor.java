@@ -45,7 +45,7 @@ public class ReplaceServiceProcessor {
         logger.info("Generated filename : {}", generatedFileName);
 
         try {
-            replace(normalizeMap(request.getReplace()),  createFilePath(request.getFile(), DIR + DIR_TEMPLATES), createFilePath(generatedFileName, DIR + DIR_TEMPS));
+            replace(normalizeMap(request.getReplace()),  createFilePath(request.getPdf_type(), DIR + DIR_TEMPLATES), createFilePath(generatedFileName, DIR + DIR_TEMPS));
             logger.info("Created file : {}", generatedFileName);
             response.setUrl(createURL(generatedFileName, httpServletRequest));
             response.setStatus(HttpStatus.OK.name());
