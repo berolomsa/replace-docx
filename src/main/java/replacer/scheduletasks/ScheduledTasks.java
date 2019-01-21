@@ -37,6 +37,6 @@ public class ScheduledTasks {
     }
 
     private Predicate<Path> isOldFile() {
-        return p -> new Date().getTime() - p.toFile().lastModified() > BACKUP_DAYS_LIMIT * 24 * 60 * 60 * 1000;
+        return p -> !Files.isDirectory(p) && new Date().getTime() - p.toFile().lastModified() > BACKUP_DAYS_LIMIT * 24 * 60 * 60 * 1000;
     }
 }
