@@ -7,9 +7,13 @@ import java.util.stream.Collectors;
 import static replacer.utils.Constants.*;
 
 public class Uitls {
-    public static String convertToKey(String key) {
+    public static String convertToOldKey(String key) {
         return SEPERATOR + key + SEPERATOR;
     }
+
+	public static String convertToNewKey(String key) {
+		return SEPERATOR + BRACKET_OPEN + key + BRACKET_CLOSE;
+	}
 
     public static Map<String, String> normalizeMap(Map<String, String> replace) {
         return replace.entrySet()
