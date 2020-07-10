@@ -10,18 +10,17 @@ For using replace function client must send POST request to server.
 **POST URL - http://url:8080/replace**
 	 
 Request example:
-
-    {
-    "file":"template",
-    "replace": {
-    "name":"Bero",
-    "surname":"Lomsadze",
-    "idnumber":"1235",
-    "date": "5 April",
-    "phonenumber":"+995 12345678910",
-    "address": "New York"
-    }
-    }
+	{
+	   "file":"template",
+	   "replace":{
+	      "name":"Bero",
+	      "surname":"Lomsadze",
+	      "idnumber":"1235",
+	      "date":"5 April",
+	      "phonenumber":"+995 12345678910",
+	      "address":"New York"
+	   }
+	}
 
 Params:
 	"file" -> Filename of template without extention (For example: template will be referenced to template.docx
